@@ -1,5 +1,8 @@
 package com.jsparrow.demo.core;
 
+import java.io.File;
+import java.nio.file.Paths;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -23,10 +26,18 @@ public class SampleHandler extends AbstractHandler {
   @Override
   public Object execute(ExecutionEvent event) throws ExecutionException {
 
+    File descriptionFile =
+        Paths.get(System.getProperty("user.home"))
+            .resolve("git")
+            .resolve("sparrow-test")
+            .resolve(".project")
+            .toFile();
+
     MessageDialog.openInformation(
         window.getShell(),
         "Eclipse Plugin Archetype",
-        "Hello, Maven+Eclipse world: " + new ClassFinder().execute());
+        "Hello, Maven+Eclipse world: "
+            + new ClassFinder().execute(descriptionFile.getAbsolutePath()));
     return null;
   }
 }

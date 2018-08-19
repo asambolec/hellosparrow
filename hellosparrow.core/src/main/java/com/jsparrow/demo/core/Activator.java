@@ -9,6 +9,7 @@ public class Activator extends AbstractUIPlugin {
 
   // The plug-in ID
   public static final String PLUGIN_ID = "hellosparrow.core";
+  private static final String PROJECT_ROOT = "project_root";
 
   // The shared instance
   private static Activator plugin;
@@ -26,7 +27,11 @@ public class Activator extends AbstractUIPlugin {
     plugin = this;
     started = true;
 
-    System.out.println("Executing: " + new ClassFinder().execute());
+    String projectRoot = context.getProperty(PROJECT_ROOT);
+    System.out.println("Project root: " + projectRoot);
+    if (projectRoot != null) {
+      System.out.println("Executing: " + new ClassFinder().execute(projectRoot));
+    }
   }
 
   /*

@@ -1,6 +1,5 @@
 package com.jsparrow.demo.core;
 
-import java.io.File;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,19 +21,11 @@ import org.eclipse.jdt.core.JavaModelException;
 /** Executed by click menu.<br> */
 public class ClassFinder {
 
-  public String execute() {
-
+  public String execute(String projectRoot) {
     IWorkspace workspace = ResourcesPlugin.getWorkspace();
 
-    File descriptionFile =
-        Paths.get(System.getProperty("user.home"))
-            .resolve("git")
-            .resolve("sparrow-test")
-            .resolve(".project")
-            .toFile();
-
-    String descriptionFilePathValue = descriptionFile.getAbsolutePath();
-    Path descriptionFilePath = new Path(descriptionFilePathValue);
+    Path descriptionFilePath =
+        new Path(Paths.get(projectRoot, ".project").toFile().getAbsolutePath());
     IProjectDescription description;
     String classes = "";
     try {
