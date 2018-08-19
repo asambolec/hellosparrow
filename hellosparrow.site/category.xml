@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/hellosparrow.feature_0.0.0.jar" id="hellosparrow.feature" version="0.0.0">
+    <category name="hellosparrow"/>
+   </feature>
+   <feature url="features/hellosparrow.feature.source_0.0.0.jar" id="hellosparrow.feature.source" version="0.0.0">
+    <category name="hellosparrow Developer Resources"/>
+   </feature>
+</site>
