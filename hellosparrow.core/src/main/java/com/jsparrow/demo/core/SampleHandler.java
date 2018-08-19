@@ -8,28 +8,25 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-/**
- * Executed by click menu.<br/>
- */
+/** Executed by click menu.<br> */
 public class SampleHandler extends AbstractHandler {
 
-    private final IWorkbenchWindow window;
+  private final IWorkbenchWindow window;
 
-    /**
-     * constructor.
-     */
-    public SampleHandler() {
-        IWorkbench workbench = PlatformUI.getWorkbench();
-        this.window = workbench.getActiveWorkbenchWindow();
-    }
+  /** constructor. */
+  public SampleHandler() {
+    IWorkbench workbench = PlatformUI.getWorkbench();
+    this.window = workbench.getActiveWorkbenchWindow();
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-        MessageDialog.openInformation(window.getShell(), "Eclipse Plugin Archetype", "Hello, Maven+Eclipse world,\n hellosparrow is built with Tycho");
-        return null;
-    }
+  /** {@inheritDoc} */
+  @Override
+  public Object execute(ExecutionEvent event) throws ExecutionException {
 
+    MessageDialog.openInformation(
+        window.getShell(),
+        "Eclipse Plugin Archetype",
+        "Hello, Maven+Eclipse world: " + new ClassFinder().execute());
+    return null;
+  }
 }
