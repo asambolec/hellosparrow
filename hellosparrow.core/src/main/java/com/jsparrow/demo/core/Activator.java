@@ -27,6 +27,8 @@ public class Activator extends AbstractUIPlugin {
     plugin = this;
     started = true;
 
+    // Paramether passed when invoked from
+    // non GUI environment. i.e. Maven plugin
     String projectRoot = context.getProperty(PROJECT_ROOT);
     System.out.println("Project root: " + projectRoot);
     if (projectRoot != null) {
