@@ -30,7 +30,6 @@ public class SampleHandler extends AbstractHandler {
         Paths.get(System.getProperty("user.home"))
             .resolve("git")
             .resolve("sparrow-test")
-            .resolve(".project")
             .toFile();
 
     MessageDialog.openInformation(
